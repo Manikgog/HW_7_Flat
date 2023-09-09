@@ -1,12 +1,5 @@
 ﻿/*
-Задание 2.
-Создать класс Flat (квартира).
-Реализовать перегруженные операторы:
-1. Проверка на равенство площадей квартир (операция
-==).
-2. Операцию присваивания одного объекта в другой
-(операция =).
-3. Сравнение двух квартир по цене (операция>).
+Для вывода площади квартиры применён паттерн "Стратегия" 
 */
 #include <iostream>
 #include <locale.h>
@@ -31,8 +24,10 @@ int main() {
 	assert(f2.GetNumberHouse() == f1.GetNumberHouse());
 	assert(f2.GetStreet() == f1.GetStreet());
 	assert(f2.GetPrice() == f1.GetPrice());
-	assert(f2.GetSquare() == f1.GetSquare());
 	
+	std::cout << "Square in metres - " << f1.GetSquare_() << std::endl;
+	f1.SetGetSquareIn(new GetSquareInFeet(f1.GetSquare_()));				// установка объекта для вычисления площади в квадратных футах
+	std::cout << "Square in feet - " << f1.GetSquare_() << std::endl;
 
 	f2.ShowFlat();
 	

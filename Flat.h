@@ -5,6 +5,8 @@
 #include <iostream>
 #include <iomanip>
 
+#include "GetSquare.h"
+
 class Flat
 {
 private:
@@ -13,14 +15,20 @@ private:
 	std::string _numberFlat;
 	double _price;
 	double _square;
+	GetSquare* _getSquare;
 
 public:
+	
+
+
 	Flat();
 	Flat(std::string street, std::string numberHouse, std::string numberFlat, double price, double square);
 	Flat(std::string street);
 	Flat(std::string street, std::string numberHouse);
 	Flat(std::string street, std::string numberHouse, std::string numberFlat);
 	Flat(std::string street, std::string numberHouse, std::string numberFlat, double price);
+	~Flat();
+	Flat(const Flat& f);
 	Flat& operator=(const Flat& f);
 	bool operator==(const Flat& f);
 	bool operator>(const Flat& f);
@@ -29,7 +37,8 @@ public:
 	std::string GetNumberHouse();
 	std::string GetNumberFlat();
 	double GetPrice();
-	double GetSquare();
+	double GetSquare_();
+	void SetGetSquareIn(GetSquare* getSquare);
 	void ShowFlat();
 };
 
